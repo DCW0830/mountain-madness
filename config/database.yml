@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: mountain_madness_development
+
+  test:
+  <<: *default
+  database: mountain_madness_test
+
+production:
+  <<: *default
+  database: mountain_madness_production
+  username: mountain_madness
+  password: <%= ENV['SECRET_KEY_BASE'] %>
