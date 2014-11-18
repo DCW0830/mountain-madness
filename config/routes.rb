@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :usertrails
   resources :trails
   resources :users
+  resources :gear, only: :index
 
   get '/auth/:provider/callback', to: 'sessions#create', as: 'twitter'
 
