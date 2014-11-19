@@ -22,7 +22,11 @@
           <li><%= link_to "Dashboard", dashboard_index_path, class: "welcome-link"%></li>
 
         <div id="login-fields">
-          <li><%= link_to 'Login with Twitter', twitter_path('twitter') %></li>
+          <% if current_user %>
+            <li><%= link_to 'Logout', signout_path %></li>
+          <% else %>
+            <li><%= link_to 'Login with Twitter', twitter_path("twitter") %></li>
+          <% end %>
 
           <%#= form_tag(root_path), { style: "padding-top: 10px;" }) do %>
           <%#= text_field_tag :email, "", placeholder: 'Email', class: 'focus', class: 'login-field' %>

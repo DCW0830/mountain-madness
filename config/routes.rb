@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :best, only: :index
   resources :dashboard, only: :index
 
-  get '/auth/:provider/callback', to: 'sessions#create', as: 'twitter'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/:provider', to: 'sessions#create', as: 'twitter'
   get 'sessions/create'
   get 'sessions/destroy'
   get 'auth/failure', to: redirect('/')
