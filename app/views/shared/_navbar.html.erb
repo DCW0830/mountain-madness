@@ -9,6 +9,7 @@
             <span class="icon-bar"></span>
           </button>
           <%= link_to "MountainMadness", root_path, class: "navbar-brand", id: "site_title" %>
+          <%= image_tag 'mtblogo.png', size: '70x70' %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,18 +22,19 @@
           <li><%= link_to "Best Of", best_index_path, class: "welcome-link"%></li>
           <li><%= link_to "Dashboard", dashboard_index_path, class: "welcome-link"%></li>
 
-        <div id="login-fields">
+        <li><div id="login-fields">
           <% if current_user %>
             <li><%= link_to 'Logout', signout_path %></li>
           <% else %>
             <li><%= link_to 'Login with Twitter', twitter_path("twitter") %></li>
           <% end %>
-
-          <%#= form_tag(root_path), { style: "padding-top: 10px;" }) do %>
-          <%#= text_field_tag :email, "", placeholder: 'Email', class: 'focus', class: 'login-field' %>
-          <%#= password_field_tag :password, "", placeholder: 'Password', class: 'focus', class: 'login-field' %>
-          <%#= submit_tag 'Login', class: "btn btn-sm" %>
-          <%# end %>
+        </div></li>
+        <div id="search_bar">
+          <%= form_tag :controller => 'trails', :action => 'search', :method => 'get' do %>
+            <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+            <%= submit_tag "Search", :name => nil %>
+            <%#= link_to_function "Clear", "$('search_field').clear()" %>
+          <% end %>
         </div>
       </ul>
     </div><!-- /.navbar-collapse -->

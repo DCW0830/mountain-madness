@@ -1,0 +1,8 @@
+<% unless @trails.nil? %>
+  <ul>
+    <% @trails.each do |trail| %>
+  <li><%= link_to trail.title,
+    :action => 'show', :id => trail.id  %></li>
+    <% end %>
+  </ul>
+<% end %>

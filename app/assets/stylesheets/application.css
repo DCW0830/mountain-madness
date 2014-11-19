@@ -23,6 +23,9 @@ body {
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
+.logo {
+  
+}
 .navbar-wrapper {
   position: absolute;
   top: 0;
