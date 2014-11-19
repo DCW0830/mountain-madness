@@ -1,0 +1,2 @@
+class BestController < ApplicationController
+end

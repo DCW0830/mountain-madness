@@ -9,6 +9,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootst/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <div id="user_nav">
+  +  <% if current_user %>
+  +    Signed in as <strong><%= current_user.name %></strong>!
+  +    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  +  <% else %>
+  +    <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
+  +  <% end %>
+  +</div>
 <%= render 'shared/navbar' %>
 <%= yield %>
 

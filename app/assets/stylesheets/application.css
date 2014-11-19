@@ -51,6 +51,8 @@ body {
 
   /* Navbar positioning foo */
   .navbar-wrapper {
+    position: fixed;
+    z-index: 2;
     margin-top: 20px;
   }
   .navbar-wrapper .container {

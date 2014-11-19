@@ -14,15 +14,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-      <li><%#= link_to 'About', about_path(@business.slug) %></li>
-      <li><%#= link_to 'Browse', photos_path(@business.slug) %></li>
+
 
           <li><%= link_to 'Forum', comments_path %></li>
           <li><%= link_to 'Gear', gear_index_path %></li>
-          <li><%#= link_to "Best Of", trail_path, class: "welcome-link"%></li>
-          <li><%#= link_to "Dashboard", user_path, class: "welcome-link"%></li>
+          <li><%= link_to "Best Of", best_index_path, class: "welcome-link"%></li>
+          <li><%= link_to "Dashboard", dashboard_index_path, class: "welcome-link"%></li>
 
         <div id="login-fields">
+          <li><%= link_to 'Login with Twitter', twitter_path('twitter') %></li>
+
           <%#= form_tag(root_path), { style: "padding-top: 10px;" }) do %>
           <%#= text_field_tag :email, "", placeholder: 'Email', class: 'focus', class: 'login-field' %>
           <%#= password_field_tag :password, "", placeholder: 'Password', class: 'focus', class: 'login-field' %>
