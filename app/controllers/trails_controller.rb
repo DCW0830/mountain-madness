@@ -3,6 +3,6 @@ class TrailsController < ApplicationController
   end
 
   def search
-    @trails = Trail.search(params[:city]) 
+    @trails = Trail.search(params[:city])
   end
 end

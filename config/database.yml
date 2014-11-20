@@ -7,7 +7,7 @@ development:
   <<: *default
   database: mountain_madness_development
 
-  test:
+test:
   <<: *default
   database: mountain_madness_test
 

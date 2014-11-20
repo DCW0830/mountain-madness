@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :usertrails
   has_many :trails, through: :usertrails
+  validates :name, presence: :true
 
   def self.from_omniauth(auth)
     where(uid: auth.uid).first_or_initialize.tap do |user|

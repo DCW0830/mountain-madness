@@ -6,13 +6,17 @@ class Trail < ActiveRecord::Base
   has_many :users, through: :usertrails
 
   def self.search(searched)
-    #response = HTTParty.get('https://outdoor-data-api.herokuapp.com/api.json?&api_key=9a4912af55dd690f097662cdf5b21bcb&q[city_eq]=Denver')
-    response = HTTParty.get(build_url(searched))
+    @response = HTTParty.get(build_url(searched))
+    create_objects
+  end
 
-    trails = response.parsed_response["places"].map do |trail|
-      OpenStruct.new(trail)
+  def self.create_objects
+    @response.parsed_response["places"].map do |trail_data|
+      OpenStruct.new(trail_data)
+    end.select do |trail|
+      activity = trail.activities.first || {}
+      activity['activity_type_id'] == 5
     end
-    trails
   end
 
   def self.url
@@ -31,5 +35,9 @@ class Trail < ActiveRecord::Base
   def self.build_url(searched_city)
     built = url + api_key + city(searched_city)
     built.to_s
+  end
+
+  def bike_trail?
+    trail.activities.first['activity_type_id'] == 5
   end
 end
