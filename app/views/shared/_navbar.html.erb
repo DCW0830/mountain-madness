@@ -20,7 +20,9 @@
           <li><%= link_to 'Forum', comments_path %></li>
           <li><%= link_to 'Gear', gear_index_path %></li>
           <li><%= link_to "Best Of", best_index_path, class: "welcome-link"%></li>
-          <li><%= link_to "Dashboard", dashboard_index_path, class: "welcome-link"%></li>
+          <% if current_user %>
+            <li><%= link_to "Dashboard", dashboard_index_path, class: "welcome-link"%></li>
+          <% end %>
 
         <li><div id="login-fields">
           <% if current_user %>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :usertrails
   has_many :trails, through: :usertrails
+  has_one  :dashboard
   validates :name, presence: :true
 
   def self.from_omniauth(auth)
