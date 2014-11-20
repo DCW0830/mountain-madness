@@ -1,0 +1,23 @@
+<% unless @trails.nil? || @trails.empty? %>
+  <ul>
+    <% @trails.parsed_response["places"].each do |trail| %>
+        <li><%= trail['name'] %></li>
+        <li><%= trail['city'] %></li>
+        <li><%= trail['state'] %></li>
+        <li><%= trail['directions'] %></li>
+        <li><%= trail['lat'] %></li>
+        <li><%= trail['lon'] %></li>
+        <li><%= trail['description'] %></li>
+        <li><%= trail['activity_type_name'] %></li>
+        <li><%= trail['url'] %></li>
+        <li><%= trail['length'] %></li>
+        <% unless trail['activities'].nil? || trail['activities'].first.nil? %>
+          <li><%= trail['activities'].first['description'] %></li>
+        <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+#bring in only mtn biking trails
+#fix the trail activities
+#move these attributes into methods so that .name == ['name']

@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-  get 'search', to: 'trails#search'
+  post 'search', to: 'trails#search'
 
 end

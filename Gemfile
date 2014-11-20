@@ -27,6 +27,8 @@ gem 'omniauth-twitter'
 gem 'pg'
 gem 'bootstrap_form'
 gem 'figaro'
+gem 'pry'
+gem 'httparty'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
