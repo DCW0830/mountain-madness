@@ -1,20 +1,17 @@
 <% unless @trails.nil? || @trails.empty? %>
   <ul>
     <% @trails.each do |trail| %>
-        <li><%= trail.name %></li>
-        <li><%= trail.city %></li>
-        <li><%= trail.state %></li>
-        <li><%= trail.directions %></li>
-        <li><%= trail.lat %></li>
-        <li><%= trail.lon %></li>
-        <li><%= trail.description %></li>
-        <li><%= trail.activity_type_name %></li>
-        <li><%= trail.url %></li>
-        <li><%= trail.length %></li>
-        <% binding.pry %>
-        <%# unless trail['activities'].nil? || trail['activities'].first.nil? %>
+        <li>Name:<%= trail.name %></li>
+        <li>City:<%= trail.city %></li>
+        <li>State:<%= trail.state %></li>
+        <li>Directions:<%= trail.directions %></li>
+        <li>Lattitude:<%= trail.lat %></li>
+        <li>Longitude:<%= trail.lon %></li>
+        <% unless trail.activities.nil? || trail['activities'].first.nil? %>
           <li><%= trail.activities.first['description'] %></li>
-        <%# end %>
+          <li>This trail has a rating of: <%= trail.activities.first['rating'] %> on a scale of 1-5.</li>
+          <li>This trail is <%= trail.activities.first['length'] %> miles long.</li>
+        <% end %>
     <% end %>
   </ul>
 <% end %>
