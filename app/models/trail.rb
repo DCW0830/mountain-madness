@@ -1,7 +1,7 @@
 class Trail < ActiveRecord::Base
   include HTTParty
   require 'open-uri'
-  require 'ostruct'
+  require_dependency 'ostruct'
   has_many :usertrails
   has_many :users, through: :usertrails
 
@@ -9,10 +9,9 @@ class Trail < ActiveRecord::Base
     #response = HTTParty.get('https://outdoor-data-api.herokuapp.com/api.json?&api_key=9a4912af55dd690f097662cdf5b21bcb&q[city_eq]=Denver')
     response = HTTParty.get(build_url(searched))
 
-    trails = response.parsed_response["places"].each do |trail|
+    trails = response.parsed_response["places"].map do |trail|
       OpenStruct.new(trail)
     end
-    binding.pry
     trails
   end
 
