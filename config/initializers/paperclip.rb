@@ -3,9 +3,9 @@ unless Rails.env.test?
     {
       storage: :s3,
       s3_credentials: {
-        bucket: ENV["S3_BUCKET"],
-        access_key_id: ENV["S3_KEY_ID"],
-        secret_access_key: ENV["S3_ACCESS_KEY"],
+        bucket: Rails.application.secrets.S3_BUCKET,
+        access_key_id: Rails.application.secrets.S3_KEY_ID,
+        secret_access_key: Rails.application.secrets.S3_ACCESS_KEY,
       },
       styles: {
         medium: "300x300>",
