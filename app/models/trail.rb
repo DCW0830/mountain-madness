@@ -5,8 +5,8 @@ class Trail < ActiveRecord::Base
   has_many :usertrails
   has_many :users, through: :usertrails
 
-  def self.search(searched)
-    @response = HTTParty.get(build_url(searched))
+  def self.search(state='', city='')
+    @response = HTTParty.get(build_url(state, city))
     create_objects
   end
 
@@ -27,13 +27,18 @@ class Trail < ActiveRecord::Base
     '?&api_key=9a4912af55dd690f097662cdf5b21bcb'
   end
 
+  def self.state(searched_state)
+    searched = URI::encode searched_state
+    "&q[state_cont]=#{searched}"
+  end
+
   def self.city(searched_city)
     searched = URI::encode searched_city
     "&q[city_cont]=#{searched}"
   end
 
-  def self.build_url(searched_city)
-    built = url + api_key + city(searched_city)
+  def self.build_url(searched_state='', searched_city='')
+    built = url + api_key + city(searched_city) +state(searched_state)
     built.to_s
   end
 

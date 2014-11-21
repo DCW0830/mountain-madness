@@ -9,7 +9,6 @@
             <span class="icon-bar"></span>
           </button>
           <%= link_to "MountainMadness", root_path, class: "navbar-brand", id: "site_title" %>
-          <%= image_tag 'mtblogo.png', size: '70x70' %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,7 +32,10 @@
         </div></li>
         <div id="search_bar">
           <%= form_tag :controller => 'trails', :action => 'search', :method => 'post' do %>
-            <%= text_field_tag :city, params[:city], :id => 'search_field' %>
+            <%= label_tag "Search by City" %>
+            <%= text_field_tag :city, params[:city], :id => 'search_field' %><br>
+            <%= label_tag "Search by State" %>
+            <%= text_field_tag :state, params[:state], :id => 'search_field' %><br>
             <%= submit_tag "Search", :name => nil %>
             <%#= link_to_function "Clear", "$('search_field').clear()" %>
           <% end %>
