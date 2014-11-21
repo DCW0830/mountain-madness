@@ -15,33 +15,33 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
 
+            <li><%= link_to 'Forum', comments_path %></li>
+            <li><%= link_to 'Gear', gear_index_path %></li>
+            <li><%= link_to "Best Of", best_index_path, class: "welcome-link"%></li>
+            <% if current_user %>
+              <li><%= link_to "Dashboard", dashboard_index_path, class: "welcome-link"%></li>
+            <% end %>
 
-          <li><%= link_to 'Forum', comments_path %></li>
-          <li><%= link_to 'Gear', gear_index_path %></li>
-          <li><%= link_to "Best Of", best_index_path, class: "welcome-link"%></li>
-          <% if current_user %>
-            <li><%= link_to "Dashboard", dashboard_index_path, class: "welcome-link"%></li>
-          <% end %>
-
-        <li><div id="login-fields">
-          <% if current_user %>
-            <li><%= link_to 'Logout', signout_path %></li>
-          <% else %>
-            <li><%= link_to 'Login with Twitter', twitter_path("twitter") %></li>
-          <% end %>
-        </div></li>
-        <div id="search_bar">
-          <%= form_tag :controller => 'trails', :action => 'search', :method => 'post' do %>
-            <%= label_tag "Search by City" %>
-            <%= text_field_tag :city, params[:city], :id => 'search_field' %><br>
-            <%= label_tag "Search by State" %>
-            <%= text_field_tag :state, params[:state], :id => 'search_field' %><br>
-            <%= submit_tag "Search", :name => nil %>
-            <%#= link_to_function "Clear", "$('search_field').clear()" %>
-          <% end %>
+            <li><div id="login-fields">
+              <% if current_user %>
+                <li><%= link_to 'Logout', signout_path %></li>
+              <% else %>
+                <li><%= link_to 'Login with Twitter', twitter_path("twitter") %></li>
+              <% end %>
+            </div></li>
+           </ul>
+        <div id="sidebar">
+          <div id="search_bar">
+            <%= form_tag :controller => 'trails', :action => 'search', :method => 'post' do %>
+              <%= label_tag "Search by City" %>
+              <%= text_field_tag :city, params[:city], :id => 'search_field' %><br>
+              <%= label_tag "Search by State" %>
+              <%= text_field_tag :state, params[:state], :id => 'search_field' %><br>
+              <%= submit_tag "Search", :name => nil %>
+              <%#= link_to_function "Clear", "$('search_field').clear()" %>
+            <% end %>
+          </div>
         </div>
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-
 </nav>

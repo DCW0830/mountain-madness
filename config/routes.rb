@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :images
+
   root to: "trails#index"
   resources :comments
   resources :usertrails
