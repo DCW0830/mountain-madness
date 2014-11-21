@@ -7,9 +7,9 @@ class TrailsController < ApplicationController
     if params[:state].length > 0 && params[:city].length > 0
       @trails = Trail.search(params[:state], params[:city])
     elsif params[:city].empty?
-      @trails = Trail.search(params[:state])
+      @trails = Trail.search_state(params[:state])
     else
-      @trails = Trail.search(params[:city])
+      @trails = Trail.search_city(params[:city])
     end
   end
 end
