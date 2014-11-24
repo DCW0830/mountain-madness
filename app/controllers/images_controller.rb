@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to root_path
     else
-      gflash :now,  :error => "Image was not added. Please try again."
+      flash :now,  :error => "Image was not added. Please try again."
       render :new
     end
   end
