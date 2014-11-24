@@ -1,6 +1,7 @@
 <% unless @trails.nil? || @trails.empty? %>
   <ul>
     <% @trails.each do |trail| %>
+      <div id='trail-info'>
         <li>Name:<%= trail.name %></li>
         <li>City:<%= trail.city %></li>
         <li>State:<%= trail.state %></li>
@@ -12,6 +13,7 @@
           <li>This trail has a rating of: <%= trail.activities.first['rating'] %> on a scale of 1-5.</li>
           <li>This trail is <%= trail.activities.first['length'] %> miles long.</li>
         <% end %>
+      </div>
     <% end %>
   </ul>
 <% end %>

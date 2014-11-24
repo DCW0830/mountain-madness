@@ -29,9 +29,11 @@ gem 'bootstrap_form'
 gem 'figaro'
 gem 'pry'
 gem 'httparty'
-gem "paperclip", "~> 4.2"
+gem 'paperclip', '~> 4.2'
 gem 'aws-sdk'
 gem "fog"
+gem 'active_model_serializers'
+
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 

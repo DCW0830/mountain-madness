@@ -1,6 +1,13 @@
 class ImagesController < ApplicationController
+  respond_to :html, :json
+
   def new
     @image = Image.new
+  end
+
+  def index
+    @images = Image.all
+    respond_with @images
   end
 
   def create

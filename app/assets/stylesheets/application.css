@@ -13,10 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
 body {
   color: #5a5a5a;
 }
 
+#home-comment {
+  width: 350px;
+  font-family: sans-serif;
+  margin-top: 50px;
+  font-size: 30px;
+  position: absolute;
+  right: 380px;
+  top: 100px;
+  text-align: center;
+
+}
 
 
 /* CUSTOMIZE THE NAVBAR
@@ -24,6 +36,22 @@ body {
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .logo {
+
+}
+
+.image {
+  /* Set rules to fill background */
+  min-height: 100%;
+  width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
 
 }
 .navbar-wrapper {

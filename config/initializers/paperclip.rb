@@ -8,6 +8,7 @@ unless Rails.env.test?
         secret_access_key: Rails.application.secrets.S3_ACCESS_KEY,
       },
       styles: {
+        large: "500x500>",
         medium: "300x300>",
         thumb: "100x100>"
       },
