@@ -17,5 +17,12 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   post 'search', to: 'trails#search'
+  get 'search', to: 'trails#search'
+
+  namespace :api do
+    namespace :v1 do
+      resources :trails
+    end
+  end
 
 end

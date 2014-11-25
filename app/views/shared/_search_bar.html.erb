@@ -1,7 +1,6 @@
 <div id="sidebar">
   <div id="search_bar">
-    <!-- <%#= form_tag :controller => 'trails', :action => 'search', :method => 'post' do %> -->
-    <%= form_tag search_path do %>
+    <%= form_tag search_path, method: :get do %>
       <%= label_tag "Search by City" %>
       <%= text_field_tag :city, params[:city], :id => 'search_field' %><br>
       <%= label_tag "Search by State" %>

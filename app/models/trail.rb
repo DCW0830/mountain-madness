@@ -2,6 +2,7 @@ class Trail < ActiveRecord::Base
   include HTTParty
   require 'open-uri'
   require_dependency 'ostruct'
+  # validates :unique_id, presence: true, uniqueness: true
   has_many :usertrails
   has_many :users, through: :usertrails
 

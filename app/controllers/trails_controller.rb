@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-  respond_to :html, :json
+  respond_to :js
   def index
   end
 
@@ -8,23 +8,20 @@ class TrailsController < ApplicationController
       @trail = Trail.search_id(params[:unique_id])
     elsif params[:state].length > 0 && params[:city].length > 0
       @trails = Trail.search(params[:state], params[:city])
-      respond_with @trails
     elsif params[:city].empty?
       @trails = Trail.search_state(params[:state])
-      respond_with @trails
     else
       @trails = Trail.search_city(params[:city])
-      respond_with @trails
     end
   end
 
   def create
-    @trail = current_user.trails.new(trail_params)
-    if @trail.save
-      flash[:notice] = "You have picked a favorite trail!"
+    @trail = current_user.trails.find_or_create_by(unique_id: trail_params[:unique_id])
+    @trail.update_attributes(trail_params)
+
+    if @trail.valid?
       redirect_to :back
     else
-      flash[:notice] = "Didn't work. Boo."
       redirect_to :back
     end
   end
