@@ -16,6 +16,11 @@
 
 body {
   color: #5a5a5a;
+  /*margin-top:150px;*/
+}
+
+#story {
+  font: white;
 }
 
 #home-comment {
@@ -54,6 +59,12 @@ body {
   left: 0;
 
 }
+
+.nav {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -100,9 +111,9 @@ body {
     border-radius: 4px;
   }
   #site_title{
-    margin-top: 12px;
- font-size: 34px;
- color: #C8C8C8;
+    margin-top: 10px;
+    font-size: 34px;
+    color: #C8C8C8;
 }
 
 #site_title:hover {
@@ -116,14 +127,18 @@ body {
 #nav_bar{
   background-color: #000000;
   height: 80px;
-  border-bottom: solid 4px lightblue;
+  border-bottom: solid 4px white;
   margin-bottom: 0px;
 }
 
 #search_bar {
+  position: relative;
+  z-index: 1500;
   float: right;
   width: 200px;
-  margin-top: 5px;
+  padding: 15px;
+  margin-right: 10px;
+  margin-top: 50px;
   text-align: center;
   background: #c8c8c8;
   border: 1px solid;
@@ -132,7 +147,8 @@ body {
 }
 
 #photo {
-  margin-top: 180px;
+  position: absolute;
+  margin-top: 25px;
   font-size: 20px;
   float: right;
   border: 1px solid;

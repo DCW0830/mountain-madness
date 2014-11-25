@@ -1,3 +1,15 @@
 <div id="photo">
   <%= link_to "Add a pic of your sweet ride!", new_image_path, class: "btn btn-default" %>
 </div>
+
+<div id="user-info">
+  <ul>
+    <li><%= current_user.name %></li>
+    <li><%= current_user.trails.each do |trail| %>
+      <% trail.name %><br>
+      <% trail.length %><br>
+      <% trail. %></li>
+    <li><%= current_user.comments %></li>
+    <li><%= current_user.image %></li>
+  </ul>
+</div>

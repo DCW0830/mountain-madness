@@ -2,22 +2,29 @@
 <html>
   <head>
     <title>MountainMadness</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
       <!-- <#script src="https://maxcdn.bootstrapcdn.com/bootst/3.2.0/js/bootstrap.min.js"></script> -->
   </head>
   <body>
-    <div id="user_nav">
-    +  <% if current_user %>
-    +    Signed in as <strong><%= current_user.name %></strong>!
-    +    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    +  <% else %>
-    +    <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
-    +  <% end %>
-    +</div>
   <%= render 'shared/navbar' %>
+  <div id="user_nav">
+-    +  <% if current_user %>
+-    +    Signed in as <strong><%= current_user.name %></strong>!
+-    +    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+-    +  <% else %>
+-    +    <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
+-    +  <% end %>
+-    +</div>
+
+  <%= render 'shared/search_bar' %>
+
+  <div class="alert alert-warning" role="alert">
+    <%= flash[:notice] %>
+  </div>
   <%= yield %>
 
   </body>

@@ -1,0 +1,13 @@
+<div id="sidebar">
+  <div id="search_bar">
+    <!-- <%#= form_tag :controller => 'trails', :action => 'search', :method => 'post' do %> -->
+    <%= form_tag search_path do %>
+      <%= label_tag "Search by City" %>
+      <%= text_field_tag :city, params[:city], :id => 'search_field' %><br>
+      <%= label_tag "Search by State" %>
+      <%= text_field_tag :state, params[:state], :id => 'search_field' %><br>
+      <%= submit_tag "Search", :name => nil %>
+      <%#= link_to_function "Clear", "$('search_field').clear()" %>
+    <% end %>
+  </div>
+</div>
