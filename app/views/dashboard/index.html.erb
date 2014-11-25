@@ -5,11 +5,24 @@
 <div id="user-info">
   <ul>
     <li><%= current_user.name %></li>
-    <li><%= current_user.trails.each do |trail| %>
-      <% trail.name %><br>
-      <% trail.length %><br>
-      <% trail. %></li>
-    <li><%= current_user.comments %></li>
-    <li><%= current_user.image %></li>
+    <li><% current_user.trails.each do |trail| %>
+        <div id='trail-info'>
+          <li>Name:<%= trail.name %></li>
+          <li>City:<%= trail.city %></li>
+          <li>State:<%= trail.state %></li>
+          <li>Directions:<%= trail.directions %></li>
+          <li>Lattitude:<%= trail.lat %></li>
+          <li>Longitude:<%= trail.lon %></li>
+          <% unless trail.activities.nil? || trail['activities'].first.nil? %>
+            <li><%= trail.activities.first['description'] %></li>
+            <li>This trail has a rating of: <%= trail.activities.first['rating'] %> on a scale of 1-5.</li>
+            <li>This trail is <%= trail.activities.first['length'] %> miles long.</li>
+          <% end %>
+        </div>
+      <% end %><li>
+    <li><%= current_user.comments.each do |comment| %>
+      <%= comment.body %>
+      <% end %></li>
+    <li><%=image_tag current_user.image %></li>
   </ul>
 </div>
