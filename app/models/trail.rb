@@ -20,6 +20,11 @@ class Trail < ActiveRecord::Base
     create_objects
   end
 
+  def self.search_id(id)
+    @response = party(build_unique_id_url(id))
+    create_objects
+  end
+
   def self.party(searches)
     HTTParty.get(searches)
   end
@@ -51,6 +56,11 @@ class Trail < ActiveRecord::Base
     "&q[city_cont]=#{searched}"
   end
 
+  def self.unique_id(searched_id='')
+    searched = URI::encode searched_id
+    "&q[unique_id_eq]=#{searched}"
+  end
+
   def self.base
     url + api_key
   end
@@ -67,6 +77,11 @@ class Trail < ActiveRecord::Base
 
   def self.build_state_url(searched_state)
     built = base + state(searched_state)
+    built.to_s
+  end
+
+  def self.build_unique_id_url(searched_id)
+    built = base + unique_id(searched_id)
     built.to_s
   end
 

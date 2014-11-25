@@ -8,6 +8,7 @@
     <li><% current_user.trails.each do |trail| %>
         <div id='trail-info'>
           <li>Name:<%= trail.name %></li>
+          <li><%=image_tag current_user.image %></li>
           <li>City:<%= trail.city %></li>
           <li>State:<%= trail.state %></li>
           <li>Directions:<%= trail.directions %></li>
@@ -20,9 +21,10 @@
           <% end %>
         </div>
       <% end %><li>
-    <li><%= current_user.comments.each do |comment| %>
-      <%= comment.body %>
-      <% end %></li>
-    <li><%=image_tag current_user.image %></li>
+    <li>
+      <%= current_user.comments.each do |comment| %>
+        <%= comment.body %>
+      <% end %>
+    </li>
   </ul>
 </div>
