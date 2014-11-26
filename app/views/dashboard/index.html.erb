@@ -22,7 +22,7 @@
         </div>
       <% end %><li>
     <li>
-      <%= current_user.comments.each do |comment| %>
+      <% current_user.comments.each do |comment| %>
         <%= comment.body %><br>
       <% end %>
     </li>
