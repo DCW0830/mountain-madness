@@ -16,6 +16,7 @@ class TrailsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @trail = current_user.trails.find_or_create_by(unique_id: trail_params[:unique_id])
     @trail.update_attributes(trail_params)
 
@@ -27,6 +28,18 @@ class TrailsController < ApplicationController
   end
 
   def trail_params
-    params.require(:trail).permit(:unique_id)
+    params.require(:trail).permit(:unique_id,
+                                  :distance,
+                                  :description,
+                                  :name,
+                                  :city,
+                                  :state,
+                                  :lat,
+                                  :lon,
+                                  :directions,
+                                  :rating,
+                                  :url,
+                                  :thumbnail
+                                  )
   end
 end

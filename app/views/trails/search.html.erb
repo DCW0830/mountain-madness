@@ -15,14 +15,17 @@
         <% end %>
         <%= form_tag trails_path, remote: true do %>
           <%= hidden_field_tag 'trail[unique_id]', trail.unique_id %>
-          <%= hidden_field_tag 'trail[distance]', trail.name %>
-          <%= hidden_field_tag 'trail[description]', trail.name %>
+          <%= hidden_field_tag 'trail[distance]', trail.activities.first['length'] %>
+          <%= hidden_field_tag 'trail[description]', trail.activities.first['description'] %>
           <%= hidden_field_tag 'trail[name]', trail.name %>
-          <%= hidden_field_tag 'trail[city]', trail.name %>
-          <%= hidden_field_tag 'trail[state]', trail.name %>
-          <%= hidden_field_tag 'trail[lat]', trail.name %>
-          <%= hidden_field_tag 'trail[lon]', trail.name %>
-          <%= hidden_field_tag 'trail[directions]', trail.name %>
+          <%= hidden_field_tag 'trail[city]', trail.city %>
+          <%= hidden_field_tag 'trail[state]', trail.state %>
+          <%= hidden_field_tag 'trail[lat]', trail.lat %>
+          <%= hidden_field_tag 'trail[lon]', trail.lon %>
+          <%= hidden_field_tag 'trail[directions]', trail.directions %>
+          <%= hidden_field_tag 'trail[rating]', trail.activities.first %>
+          <%= hidden_field_tag 'trail[url]', trail.activities.first['url'] %>
+          <%= hidden_field_tag 'trail[thumbnail]', trail.activities.first['thumbnail'] %>
           <%= submit_tag "LIKE", class: 'btn btn-default' %>
         <% end %>
       </div>
