@@ -23,6 +23,11 @@ body {
   font: white;
 }
 
+.search-image {
+  height: 100px;
+  width: 100px;
+}
+
 #home-comment {
   width: 350px;
   font-family: sans-serif;

@@ -4,18 +4,23 @@ class Api::V1::TrailsController < Api::V1::BaseController
   before_action :authenticate, except: [:index, :show]
 
   respond_to :json, :xml
+
   def index
     respond_with Trail.all
   end
+
   def show
     respond_with Trail.find(params[:id])
   end
+
   def create
     respond_with Trail.create(trail_params)
   end
+
   def destroy
     respond_with Trail.destroy(params[:id])
   end
+
   def update
     respond_with Trail.update(params[:id], article_params)
   end

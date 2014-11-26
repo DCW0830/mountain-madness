@@ -1,6 +1,9 @@
 class DashboardController < ApplicationController
   before_filter :verify_user
+
   def index
+    source = current_user.trails.all
+    @trails = source.map {|i| DashboardDecorator.new(i)}
   end
 
   private
