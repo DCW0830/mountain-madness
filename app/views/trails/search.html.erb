@@ -10,6 +10,8 @@
         <li>Longitude:<%= trail.lon %></li>
         <% unless trail.activities.nil? || trail['activities'].first.nil? %>
           <li><%= trail.activities.first['description'] %></li>
+          <li><%= link_to trail.activities.first['url'] %></li>
+          <li><%= image_tag trail.activities.first['thumbnail'] %></li>
           <li>This trail has a rating of: <%= trail.activities.first['rating'] %> on a scale of 1-5.</li>
           <li>This trail is <%= trail.activities.first['length'] %> miles long.</li>
         <% end %>
