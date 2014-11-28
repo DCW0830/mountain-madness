@@ -45,7 +45,7 @@ class Trail < ActiveRecord::Base
           lat: trail['lat'],
           lon: trail['lon'],
           directions: trail['directions'],
-          rating: trail['activities'].first,
+          rating: trail['activities'].first['rating'],
           url: trail['activities'].first['url'],
           thumbnail: trail['activities'].first['thumbnail']
         }

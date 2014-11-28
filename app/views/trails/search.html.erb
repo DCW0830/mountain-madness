@@ -4,22 +4,19 @@
   <div class="row">
     <% unless @trails.nil? || @trails.empty? %>
       <ul>
-        <% binding.pry %>
         <% @trails.each do |trail| %>
           <div class='col-md-4' id='trail-info'>
             <h2><li><%= trail['name'] %></li></h2>
-            <li><%= image_tag trail.activities.first['thumbnail'], class: 'search-image' %></li>
-            <li>City:<%= trail.city %></li>
-            <li>State:<%= trail.state %></li>
-            <li>Directions:<%= truncate(trail.directions, length: 60) %></li>
-            <li>Lattitude:<%= trail.lat %></li>
-            <li>Longitude:<%= trail.lon %></li>
-            <% unless trail.activities.nil? || trail['activities'].first.nil? %>
-              <li><%= truncate(trail.activities.first['description'], length: 60) %></li>
-              <li><%= link_to trail.activities.first['url'] %></li>
-              <li>This trail has a rating of: <%= trail.activities.first['rating'] %> on a scale of 1-5.</li>
-              <li>This trail is <%= trail.activities.first['length'] %> miles long.</li>
-            <% end %>
+            <li><%= image_tag trail['thumbnail'], class: 'search-image' %></li>
+            <li>City:<%= trail['city'] %></li>
+            <li>State:<%= trail['state'] %></li>
+            <li>Directions:<%= truncate(trail['directions'], length: 60) %></li>
+            <li>Lattitude:<%= trail['lat'] %></li>
+            <li>Longitude:<%= trail['lon'] %></li>
+            <li><%= truncate(trail['description'], length: 60) %></li>
+            <li><%= link_to trail['url'] %></li>
+            <li>This trail has a rating of: <%= trail['rating'] %> on a scale of 1-5.</li>
+            <li>This trail is <%= trail['length'] %> miles long.</li>
             <%= form_tag trails_path, remote: true do %>
               <%= hidden_field_tag 'trail[unique_id]', trail.unique_id %>
               <%= hidden_field_tag 'trail[distance]', trail.activities.first['length'] %>
