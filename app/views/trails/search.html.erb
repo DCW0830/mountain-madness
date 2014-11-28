@@ -4,9 +4,10 @@
   <div class="row">
     <% unless @trails.nil? || @trails.empty? %>
       <ul>
+        <% binding.pry %>
         <% @trails.each do |trail| %>
           <div class='col-md-4' id='trail-info'>
-            <h2><li><%= trail.name %></li></h2>
+            <h2><li><%= trail['name'] %></li></h2>
             <li><%= image_tag trail.activities.first['thumbnail'], class: 'search-image' %></li>
             <li>City:<%= trail.city %></li>
             <li>State:<%= trail.state %></li>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :comments
   has_many :usertrails
+  has_many :images
   has_many :trails, through: :usertrails
   has_one  :dashboard
   validates :name, presence: :true

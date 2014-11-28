@@ -11,7 +11,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    @image = current_user.images.new(image_params)
     if @image.save
       redirect_to root_path
     else
@@ -23,7 +23,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    # Rails.logger.debug params[:image][:image].inspect
     params.require(:image).permit(:name, :image)
   end
 end

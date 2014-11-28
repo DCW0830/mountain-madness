@@ -7,6 +7,7 @@
 <div id="user-info">
   <ul>
     <li><%= current_user.name %></li>
+    <h3>My Trails</h3>
     <li><%=image_tag current_user.image %></li>
     <li><% @trails.each do |trail| %>
         <div id='trail-info'>
@@ -24,8 +25,15 @@
         </div>
       <% end %><li>
     <li>
-      <% current_user.comments.each do |comment| %>
+      <h3>My Comments</h3>
+      <% @comments.each do |comment| %>
         <%= comment.body %><br>
+      <% end %>
+    </li>
+    <li>
+      <h3>My Pics</h3>
+      <% @images.each do |image| %>
+        <%= image_tag image.image, class: 'search-image' %>
       <% end %>
     </li>
   </ul>

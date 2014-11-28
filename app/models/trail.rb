@@ -18,7 +18,9 @@ class Trail < ActiveRecord::Base
 
   def self.search_city(city)
     @response = party(build_city_url(city))
-    create_objects
+    create_objects.each do |trail_attributes|
+      create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
+    end
   end
 
   def self.search_id(id)
@@ -31,12 +33,28 @@ class Trail < ActiveRecord::Base
   end
 
   def self.create_objects
-    @response.parsed_response["places"].map do |trail_data|
-      OpenStruct.new(trail_data)
-    end.select do |trail|
-      activity = trail.activities.first || {}
-      activity['activity_type_id'] == 5
-    end
+    @response.parsed_response["places"].map do |trail|
+      if trail['activities'].present? && mountain_bike_trail?(trail['activities'].first)
+        {
+          unique_id: trail['unique_id'],
+          distance: trail['activities'].first['length'],
+          description: trail['activities'].first['description'],
+          name: trail['name'],
+          city: trail['city'],
+          state: trail['state'],
+          lat: trail['lat'],
+          lon: trail['lon'],
+          directions: trail['directions'],
+          rating: trail['activities'].first,
+          url: trail['activities'].first['url'],
+          thumbnail: trail['activities'].first['thumbnail']
+        }
+      end
+    end.compact!
+  end
+
+  def self.mountain_bike_trail?(activity)
+    activity['activity_type_id'] && activity['activity_type_id'] == 5
   end
 
   def self.url
