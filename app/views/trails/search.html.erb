@@ -17,22 +17,7 @@
             <li><%= link_to trail['url'] %></li>
             <li>This trail has a rating of: <%= trail['rating'] %> on a scale of 1-5.</li>
             <li>This trail is <%= trail['length'] %> miles long.</li>
-            <%= form_tag trails_path, remote: true do %>
-              <%= hidden_field_tag 'trail[unique_id]', trail.unique_id %>
-              <%= hidden_field_tag 'trail[distance]', trail.activities.first['length'] %>
-              <%= hidden_field_tag 'trail[description]', trail.activities.first['description'] %>
-              <%= hidden_field_tag 'trail[name]', trail.name %>
-              <%= hidden_field_tag 'trail[city]', trail.city %>
-              <%= hidden_field_tag 'trail[state]', trail.state %>
-              <%= hidden_field_tag 'trail[lat]', trail.lat %>
-              <%= hidden_field_tag 'trail[lon]', trail.lon %>
-              <%= hidden_field_tag 'trail[directions]', trail.directions %>
-              <%= hidden_field_tag 'trail[rating]', trail.activities.first %>
-              <%= hidden_field_tag 'trail[url]', trail.activities.first['url'] %>
-              <%= hidden_field_tag 'trail[thumbnail]', trail.activities.first['thumbnail'] %>
-              <%= submit_tag "LIKE", class: 'btn btn-default' %>
-              <%= link_to "More Info", trail_path(trail), class: 'btn btn-default' %>
-            <% end %>
+          
           </div>
         <% end %>
       </ul>
