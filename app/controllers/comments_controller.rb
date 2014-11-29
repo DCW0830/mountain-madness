@@ -6,8 +6,11 @@ class CommentsController < ApplicationController
     @comments = Comment.last(20).reverse
   end
 
-  def create
+  def new
+    @comment = Comment.new
+  end
 
+  def create
     @comment = current_user.comments.new(comment_params)
     if @comment.save
       redirect_to comments_path

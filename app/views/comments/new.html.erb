@@ -1,0 +1,17 @@
+<div id="form-new">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <h1 class="page-header">Tell a Story!</h1>
+          <%= bootstrap_form_for @comment, url: comments_path do |f| %>
+            <%= f.text_field :body %>
+            <% if current_user  %>
+              <%= f.submit "Save", :id => 'save', class: "btn btn-success" %>
+            <% else %>
+              <%= f.submit "Save", :id => 'save', class: "btn btn-success disabled" %>
+              <% end %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

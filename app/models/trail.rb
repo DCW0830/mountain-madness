@@ -5,15 +5,20 @@ class Trail < ActiveRecord::Base
   # validates :unique_id, presence: true, uniqueness: true
   has_many :usertrails
   has_many :users, through: :usertrails
+  has_many :comments
 
   def self.search(state, city)
     @response = party(build_url(state, city))
-    create_objects
+    create_objects.each do |trail_attributes|
+      create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
+    end
   end
 
   def self.search_state(state)
     @response = party(build_state_url(state))
-    create_objects
+    create_objects.each do |trail_attributes|
+      create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
+    end
   end
 
   def self.search_city(city)
@@ -25,7 +30,9 @@ class Trail < ActiveRecord::Base
 
   def self.search_id(id)
     @response = party(build_unique_id_url(id))
-    create_objects
+    create_objects.each do |trail_attributes|
+      create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
+    end
   end
 
   def self.party(searches)

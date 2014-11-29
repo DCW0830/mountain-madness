@@ -6,20 +6,25 @@ class TrailsController < ApplicationController
   def show
     source = Trail.find(params[:id])
     @trail = TrailDecorator.new(source)
+    @trailcomment = TrailComment.new
   end
 
   def search
     if params[:state].length > 0 && params[:city].length > 0
-      @trails = Trail.search(params[:state], params[:city])
+      Trail.search(params[:state], params[:city])
+      @trails = Trail.where(state: params[:state].capitalize, city: params[:city].capitalize)
     elsif params[:city].empty?
-      @trails = Trail.search_state(params[:state])
+      Trail.search_state(params[:state])
+      @trails = Trail.where(state: params[:state].capitalize)
     else
-      @trails = Trail.search_city(params[:city])
+      Trail.search_city(params[:city])
+      @trails = Trail.where(city: params[:city].capitalize)
     end
-    # binding.pry
-    # @trails.each do |trail|
-    #   Trail.create(trail_params)
-    # end
+  end
+
+  def edit
+    trail = Trail.find(params[:id])
+    current_user.trails << trail
   end
 
   def create

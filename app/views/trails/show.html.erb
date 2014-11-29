@@ -1,4 +1,36 @@
-<%= @trail.name %><br>
-<%= @trail.short_description %><br>
-<%#= truncate(@trail.description, length: 60) %><br>
-<%= @trail.format_created_at %>
+
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-6' id='trail-info'>
+      <div class="trail-info">
+        <ul>
+          <li><%= @trail.name %></li>
+          <li><%= image_tag @trail.thumbnail, class: 'search-image' %></li>
+          <li><%= link_to @trail.url %></li>
+          <li><%= @trail.city %></li>
+          <li><%= @trail.state %></li>
+          <li><%= @trail.directions %></li>
+          <li><%= @trail.lat %></li>
+          <li><%= @trail.lon %></li>
+          <li><%= @trail.description %></li>
+          <li>This trail has a rating of <%= @trail.rating %> out of 5</li>
+          <li>This trail is <%= @trail.distance %> miles long</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div id="comments">
+        <div id="new-comment">
+          <%= form_for @trailcomment do |f| %>
+            <% f.label :body %>
+            <%= f.text_area :body, class: 'comment-body' %>
+            <%= f.submit %>
+          <% end %>
+          <%#= link_to "Add Comment", new_comment_path, class: 'btn btn-default' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

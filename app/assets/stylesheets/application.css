@@ -16,7 +16,6 @@
 
 body {
   color: #5a5a5a;
-  /*margin-top:150px;*/
 }
 
 #story {
@@ -45,9 +44,6 @@ body {
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-.logo {
-
-}
 
 .image {
   /* Set rules to fill background */
