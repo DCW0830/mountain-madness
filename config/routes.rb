@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root to: "trails#index"
   resources :comments
   resources :usertrails
-  resources :trails
+  resources :trails do
+    resources :comments
+    resources :images
+  end
+
   resources :users
   resources :gear, only: :index
   resources :best, only: :index

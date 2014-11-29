@@ -4,9 +4,10 @@ class TrailsController < ApplicationController
   end
 
   def show
-    source = Trail.find(params[:id])
-    @trail = TrailDecorator.new(source)
+    source   = Trail.find(params[:id])
+    @trail   = TrailDecorator.new(source)
     @comment = Comment.new
+    @image   = Image.new
   end
 
   def search

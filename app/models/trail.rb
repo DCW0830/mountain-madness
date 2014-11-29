@@ -6,6 +6,7 @@ class Trail < ActiveRecord::Base
   has_many :usertrails
   has_many :users, through: :usertrails
   has_many :comments
+  has_many :images
 
   def self.search(state, city)
     @response = party(build_url(state, city))

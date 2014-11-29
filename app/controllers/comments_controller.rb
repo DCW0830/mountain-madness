@@ -11,10 +11,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @comment = current_user.comments.new(comment_params)
+    @trail = Trail.find(params[:trail_id])
+    @comment = current_user.comments.new(comment_params.merge(trail_id: @trail.id))
+
     if @comment.save
-      redirect_to comments_path
+      redirect_to :back
     else
       render :back
     end
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :trail_id)
   end
 
 

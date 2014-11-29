@@ -2,17 +2,11 @@ require 'rails_helper'
 
 feature "Commenting on a Trail" do
   before do
-    #create and log in a user
     @user = User.create(name: 'joe')
     @trail = Trail.create(name: 'weema')
   end
   scenario "from the trail page" do
-    #visit the trail show page
-    #fill in form with your comment
-    #click submit
-    #should be returned to the show page
-    #show page should display new comment
-    # session[:user_id] = @user.id
+
     page.set_rack_session(:user_id => @user.id)
     visit trail_path(@trail)
     within '#new-comment' do

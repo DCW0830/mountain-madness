@@ -11,12 +11,13 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = current_user.images.new(image_params)
+    @trail = Trail.find(params[:trail_id])
+    @image = current_user.images.new(image_params.merge(trail_id: @trail.id))
     if @image.save
-      redirect_to root_path
+      redirect_to :back
     else
       flash :now,  :error => "Image was not added. Please try again."
-      render :new
+      render :back
     end
   end
 

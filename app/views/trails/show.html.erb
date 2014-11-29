@@ -23,14 +23,32 @@
     <div class='col-md-6'>
       <div id="comments">
         <div id="new-comment">
-          <%= form_for @comment do |f| %>
-            <% f.label :body %>
-            <%= f.text_field :body%>
-            <%= f.label @trail %>
-            <%= f.label @trail %>
-            <%= f.submit "Add Comment" %>
+          <%= form_for [@trail, @comment] do |f| %>
+            <%= f.text_field :body %>
+            <%= f.submit "Add Comment", :id => 'save', class: "btn btn-success" %>
           <% end %>
         </div>
+        <% @trail.comments.each do |comment| %>
+          <%= comment.body %>
+          <%= comment.user.name %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="col-md-6">
+      <div id="images">
+        <div id="new-image">
+          <%= form_for [@trail, @image] do |f| %>
+            <%= f.text_field :name %>
+            <%= f.file_field :image %>
+            <%= f.submit "Add Image", :id => 'save', class: "btn btn-success" %>
+          <% end %>
+        </div>
+        <% @trail.images.each do |image| %>
+          <%= image_tag image.image.url %>
+          <%= image.user.name %>
+        <% end %>
       </div>
     </div>
   </div>
