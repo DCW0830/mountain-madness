@@ -13,11 +13,11 @@ feature "Commenting on a Trail" do
     #should be returned to the show page
     #show page should display new comment
     # session[:user_id] = @user.id
+    page.set_rack_session(:user_id => @user.id)
     visit trail_path(@trail)
-    save_and_open_page
     within '#new-comment' do
-      fill_in "comment-body", 'that was a sic trail'
-      click_link_or_button "Submit"
+      fill_in "comment[body]", with: 'that was a sic trail'
+      click_link_or_button "Add Comment"
     end
     within '#comments' do
       expect(page).to have_content('that was a sic trail')

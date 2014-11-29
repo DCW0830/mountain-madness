@@ -36,7 +36,6 @@ body {
   right: 380px;
   top: 100px;
   text-align: center;
-
 }
 
 
@@ -58,7 +57,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-
 }
 
 .nav {
@@ -106,6 +104,7 @@ body {
     padding-right: 0;
     padding-left: 0;
   }
+}
 
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
@@ -125,7 +124,7 @@ body {
   margin-top: 40px;
 }
 
-#nav_bar{
+#nav_bar {
   background-color: #000000;
   height: 80px;
   border-bottom: solid 4px white;

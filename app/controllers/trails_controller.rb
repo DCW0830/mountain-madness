@@ -6,7 +6,7 @@ class TrailsController < ApplicationController
   def show
     source = Trail.find(params[:id])
     @trail = TrailDecorator.new(source)
-    @trailcomment = TrailComment.new
+    @comment = Comment.new
   end
 
   def search
