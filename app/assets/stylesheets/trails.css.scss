@@ -1,6 +1,9 @@
 // Place all the styles related to the trails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//index page--------------------------
+
 #trail-info {
   margin-top: 50px;
   margin-bottom: 20px;
@@ -15,5 +18,64 @@
   h2 {
     text-align: center;
     text-shadow: 3px 3px 3px LightSteelBlue;
+  }
+}
+
+//show page------------------------------
+
+#show-trail {
+  margin-top: 50px;
+  list-style-type: none;
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+
+}
+
+.second {
+  text-align: center;
+}
+
+#comments {
+  border: 1px solid;
+  border-radius: 10px;
+  height: 500px;
+  #new-comments {
+
+  }
+}
+
+#images {
+   border: 1px solid;
+   border-radius: 10px;
+  #new-images {
+
+  }
+}
+
+.trail-image {
+  width: 220px;
+  height: 175px;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+#each-comment {
+  padding: 20px;
+}
+
+#new-image {
+  margin: 10px;
+}
+
+#new-comment {
+  margin: 10px;
+}
+
+#trail-header {
+  text-align: right;
+  h3 {
+    text-align: left;
+    font-family: sans-serif;
   }
 }
