@@ -2,9 +2,11 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     user.update(nickname: env['omniauth.auth']['info']['nickname'])
-    $client.update(user.nickname, "Welcome to Mountain Madness!!")
-    session[:user_id] = user.id
-    redirect_to root_path
+    if user.save
+      $client.update("#{user.nickname} Welcome to Mountain Madness!!")
+      session[:user_id] = user.id
+      redirect_to root_path
+    end
   end
 
   def destroy
