@@ -1,7 +1,7 @@
 
-<div class='container'>
+<div class='container-fluid'>
   <div class='row'>
-    <div class='col-md-8'>
+    <div class='col-md-6'>
       <div>
         <div class="row">
           <div id='show-trail'>
@@ -25,6 +25,11 @@
               </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="col-md-6">
+      <div id="maps">
+        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC3SSrpIv1R-CUWu1zipfmYQIpfV9XlFQw&q=loc:<%="#{@trail.lat},#{@trail.lon}"%>" width="500px" height="500px"></iframe>
       </div>
     </div>
     <div class='col-md-6'>

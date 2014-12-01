@@ -85,37 +85,6 @@ body {
   width: auto;
 }
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 768px) {
-
-  /* Navbar positioning foo */
-  .navbar-wrapper {
-    position: fixed;
-    z-index: 2;
-    margin-top: 20px;
-  }
-  .navbar-wrapper .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  .navbar-wrapper .navbar {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
-  /* The navbar becomes detached from the top, so we round the corners */
-  .navbar-wrapper .navbar {
-    border-radius: 4px;
-  }
-  #site_title{
-    margin-top: 10px;
-    font-size: 34px;
-    color: #C8C8C8;
-}
-
 #site_title:hover {
   color: white;
 }
@@ -157,4 +126,37 @@ body {
 
 #photo:hover {
   color: white;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    position: fixed;
+    z-index: 2;
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  #site_title{
+    margin-top: 10px;
+    font-size: 34px;
+    color: #C8C8C8;
+  }
 }
