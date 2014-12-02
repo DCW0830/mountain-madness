@@ -30,7 +30,6 @@
   margin-left: -20px;
   margin-right: 20px;
   margin-bottom: 20px;
-
 }
 
 .second {
@@ -92,9 +91,14 @@
 #trail-header {
   text-align: right;
   h3 {
+    width: 160px;
     text-align: left;
     font-family: sans-serif;
   }
+}
+
+#trail-title {
+  text-align: center;
 }
 
 #maps {
