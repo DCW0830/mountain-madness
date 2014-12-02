@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: mountain_madness_production
-  username: mountain_madness
-  password: <%= ENV['SECRET_KEY_BASE'] %>
+  username: deploy
+  password: password
