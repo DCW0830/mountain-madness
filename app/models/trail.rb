@@ -69,8 +69,11 @@ class Trail < ActiveRecord::Base
     'https://outdoor-data-api.herokuapp.com/api.json'
   end
 
+  # def self.api_key
+  #   '?&api_key=9a4912af55dd690f097662cdf5b21bcb'
+  # end
   def self.api_key
-    '?&api_key=9a4912af55dd690f097662cdf5b21bcb'
+    ENV['TRAIL_API_KEY']
   end
 
   def self.state(searched_state='')
