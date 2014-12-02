@@ -11,7 +11,7 @@ module TrailWrap
     end
 
     def build_url
-      if @id.empty?
+      if id.empty?
         "#{url}.json"
       else
         "#{url}/#{id}.json"

@@ -6,7 +6,7 @@ class DashboardDecorator < Draper::Decorator
   end
 
   def image
-    h.image_tag self.thumbnail
+    h.image_tag self.thumbnail, class: 'search-image'
   end
 
 end
