@@ -24,7 +24,7 @@
 //show page------------------------------
 
 #show-trail {
-  margin-top: 50px;
+  margin-top: 64px;
   list-style-type: none;
   border-radius: 10px;
 
@@ -34,12 +34,17 @@
 
 .second {
   text-align: center;
+  height: 365px;
+  overflow: auto;
+
 }
 
 #comments {
   border: 1px solid;
   border-radius: 10px;
   height: 500px;
+  overflow: auto;
+  margin-bottom: 20px;
   #new-comments {
 
   }
@@ -48,9 +53,16 @@
 #images {
    border: 1px solid;
    border-radius: 10px;
+   height: 500px;
+   overflow: auto;
+   margin-bottom: 20px;
   #new-images {
 
   }
+}
+
+#like {
+  margin-right: 10px;
 }
 
 .trail-image {
@@ -78,4 +90,13 @@
     text-align: left;
     font-family: sans-serif;
   }
+}
+
+#maps {
+  margin-top: 100px;
+}
+
+#search-trail-name {
+  overflow: auto;
+  height: 40px;
 }

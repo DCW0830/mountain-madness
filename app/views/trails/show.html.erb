@@ -1,5 +1,5 @@
 
-<div class='container-fluid'>
+<div class='container'>
   <div class='row'>
     <div class='col-md-6'>
       <div>
@@ -7,7 +7,7 @@
           <div id='show-trail'>
             <div id="trail-header">
               <li><h3><%= @trail.name %></h3></li>
-              <%= link_to "LIKE", edit_trail_path(@trail), remote: true, class: 'btn btn-default' %>
+              <%= link_to "LIKE", edit_trail_path(@trail), remote: true, class: 'btn btn-default', id: 'like' %>
             </div>
               <div class='col-md-6'>
                 <li><%= image_tag @trail.thumbnail, class: 'search-image' %></li>

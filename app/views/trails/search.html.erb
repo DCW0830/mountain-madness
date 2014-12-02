@@ -6,14 +6,14 @@
       <ul>
         <% @trails.each do |trail| %>
           <div class='col-md-4' id='trail-info'>
-            <h2><li><%= trail[:name] %></li></h2>
+            <h2 id='search-trail-name'><li><%= trail[:name] %></li></h2>
             <li><%= image_tag trail[:thumbnail], class: 'search-image' %></li>
             <li>City:<%= trail[:city] %></li>
             <li>State:<%= trail[:state] %></li>
-            <li>Directions:<%= truncate(trail[:directions], length: 60) %></li>
+            <li>Directions:<%= truncate(trail[:directions], length: 55) %></li>
             <li>Lattitude:<%= trail[:lat] %></li>
             <li>Longitude:<%= trail[:lon] %></li>
-            <li><%= truncate(trail[:description], length: 60) %></li>
+            <li><%= truncate(trail[:description], length: 55) %></li>
             <li><%= link_to trail[:url] %></li>
             <li>This trail has a rating of: <%= trail[:rating] %> on a scale of 1-5.</li>
             <li>This trail is <%= trail[:distance] %> miles long.</li>
