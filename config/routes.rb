@@ -1,3 +1,4 @@
+require 'resque/server'
 Rails.application.routes.draw do
   resources :images
 
@@ -29,4 +30,5 @@ Rails.application.routes.draw do
     end
   end
 
+  mount Resque::Server.new, at: "/resque"
 end

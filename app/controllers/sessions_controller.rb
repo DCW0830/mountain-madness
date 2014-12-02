@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"])
     user.update(nickname: env['omniauth.auth']['info']['nickname'])
     if user.save
-      $client.update("#{user.nickname} Welcome to Mountain Madness!!")
+      Resque.enqueue(TwitterJob, user.nickname)
       session[:user_id] = user.id
       redirect_to root_path
     end
