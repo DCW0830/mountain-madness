@@ -9,27 +9,25 @@ class Trail < ActiveRecord::Base
 
   def self.search(state, city)
     @response = party(build_url(state, city))
-    create_objects.each do |trail_attributes|
-      create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
-    end
+    objects
   end
 
   def self.search_state(state)
     @response = party(build_state_url(state))
-    create_objects.each do |trail_attributes|
-      create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
-    end
+    objects
   end
 
   def self.search_city(city)
     @response = party(build_city_url(city))
-    create_objects.each do |trail_attributes|
-      create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
-    end
+    objects
   end
 
   def self.search_id(id)
     @response = party(build_unique_id_url(id))
+    objects
+  end
+
+  def self.objects
     create_objects.each do |trail_attributes|
       create(trail_attributes) unless find_by(unique_id: trail_attributes[:unique_id])
     end
