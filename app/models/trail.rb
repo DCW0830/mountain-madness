@@ -1,7 +1,6 @@
 class Trail < ActiveRecord::Base
   include HTTParty
   require 'open-uri'
-  require_dependency 'ostruct'
   # validates :unique_id, presence: true, uniqueness: true
   has_many :usertrails
   has_many :users, through: :usertrails
@@ -69,9 +68,6 @@ class Trail < ActiveRecord::Base
     'https://outdoor-data-api.herokuapp.com/api.json'
   end
 
-  # def self.api_key
-  #   '?&api_key=9a4912af55dd690f097662cdf5b21bcb'
-  # end
   def self.api_key
     ENV['TRAIL_API_KEY']
   end
