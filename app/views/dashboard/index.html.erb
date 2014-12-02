@@ -1,6 +1,5 @@
 <div class="container">
     <h1 id='dashboard-title'><%= current_user.name %></h1>
-    <%=image_tag current_user.image %>
       <% @trails.each do |trail| %>
       <div class="row" id="dashboard-info">
         <div class='col-md-6'>
@@ -18,6 +17,8 @@
           <li>Directions: <%= trail.directions %></li>
           <li><%= trail.short_description %></li>
         </div>
+        <%= link_to trail.name, trail_path(trail) %><br>
+        <%= link_to 'Remove', usertrail_path(trail), confirm: "Are you sure you want to remove this trail?", method: :delete %>
       </div>
       <% end %>
       <div class="row">
