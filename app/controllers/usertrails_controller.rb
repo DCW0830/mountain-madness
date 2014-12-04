@@ -1,5 +1,4 @@
 class UsertrailsController < ApplicationController
-
   def destroy
     usertrail = Usertrail.find_by(trail_id: params[:id])
     usertrail.destroy
