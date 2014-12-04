@@ -1,5 +1,5 @@
-module TrailWrap
-  class TrailUser
+module MountainMadnessWrap
+  class MountainMadness
     attr_reader :id
 
     def initialize(id = '')

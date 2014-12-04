@@ -7,12 +7,12 @@
         <% @trails.each do |trail| %>
           <div class='col-md-4' id='trail-info'>
             <h2 id='search-trail-name'><li><%= trail[:name] %></li></h2>
-            <% image = trail[:thumbnail] %>
-            <% if image.nil? %>
-              <li><%= image_tag 'https://s3-us-west-2.amazonaws.com/aaronsprofessionalbucket/development/images/6/a2505a44d2f9784cc05bebbbd91c092049afe06e-medium.jpg', class: 'search-image' %></li>
-            <% else image << ('jpg') unless image.ends_with?('jpg') %>
-              <li><%= image_tag image.to_s, class: 'search-image' %></li>
-            <% end %>
+              <% image = trail[:thumbnail] %>
+              <% if image.nil? %>
+                <li><%= image_tag 'https://s3-us-west-2.amazonaws.com/aaronsprofessionalbucket/development/images/6/a2505a44d2f9784cc05bebbbd91c092049afe06e-medium.jpg', class: 'search-image' %></li>
+              <% else image << ('jpg') unless image.ends_with?('jpg') %>
+                <li><%= image_tag image.to_s, class: 'search-image' %></li>
+              <% end %>
             <li>City:<%= trail[:city] %></li>
             <li>State:<%= trail[:state] %></li>
             <li>Directions:<%= truncate(trail[:directions], length: 55) %></li>

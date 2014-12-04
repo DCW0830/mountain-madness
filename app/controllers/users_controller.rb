@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def create
-    binding.pry
     @user = User.new(params[:user])
     @user.dashboard = Dashboard.new
     if @user.save

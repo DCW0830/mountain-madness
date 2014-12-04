@@ -42,10 +42,10 @@ class Api::V1::TrailsController < Api::V1::BaseController
   end
 
   def authenticate
-    authenticate_or_request_with_http_basic("Where's Your work visa?") do |email, password|
-      author = Author.find_by(email: email)
+    authenticate_or_request_with_http_basic("Where's Your work visa?") do |nickname, oauth_secret|
+      user = User.find_by(nickname: nickname)
 
-      return true if author && author.authenticate(password)
+      return true if user && user.oauth_secret == oauth_secret
 
       head :unauthorized
     end

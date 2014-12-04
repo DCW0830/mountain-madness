@@ -9,11 +9,12 @@ RSpec.describe CommentsController, :type => :controller do
     end
 
     it 'can create a comment if user is logged in' do
+      Trail.create(name: 'inya face')
       session[:user_id] = User.create(name: 'steve').id
-      post :create, comment: {body: 'testing'}
+      binding.pry
+      post :create, comment: {body: 'testing', trail_id: 1}
       expect(flash[:notice]).to_not be_present
       expect(response).to redirect_to(comments_path)
     end
   end
-
 end

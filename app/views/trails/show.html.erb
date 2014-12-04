@@ -58,8 +58,10 @@
             <% @trail.images.each do |image| %>
               <div class='col-md-6'>
                 <%= image_tag image.image.url, class: 'trail-image' %><br>
-                <%= image.name %>
-                <%= image.user.name %>
+                <p id='image-words'>
+                  <%= image.name %>
+                </p>
+                <strong id='image-words'><%= image.user.name %></strong>
               </div>
             <% end %>
         </div>
