@@ -1,15 +1,15 @@
 class Trail < ActiveRecord::Base
   include HTTParty
   require 'open-uri'
-  # validates :unique_id, presence: true, uniqueness: true
   has_many :usertrails
   has_many :users, through: :usertrails
   has_many :comments
   has_many :images
 
   def self.search(state, city)
-    @response = party(build_url(state, city))
-    objects
+    TrailSearch.search
+    # @response = party(build_url(state, city))
+    # objects
   end
 
   def self.search_state(state)
@@ -107,9 +107,5 @@ class Trail < ActiveRecord::Base
   def self.build_unique_id_url(searched_id)
     built = base + unique_id(searched_id)
     built.to_s
-  end
-
-  def bike_trail?
-    trail.activities.first['activity_type_id'] == 5
   end
 end
